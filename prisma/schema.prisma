@@ -1,0 +1,108 @@
+// Prisma Schema for Student Participation Monitoring System
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
+}
+
+
+// Teacher model
+model Teacher {
+  id        String   @id @default(uuid())
+  name      String
+  email     String   @unique
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  
+  courses   Course[]
+  
+  @@map("teachers")
+}
+
+// Course model
+model Course {
+  id          String   @id @default(uuid())
+  name        String
+  code        String   @unique
+  description String?
+  teacherId   String
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  
+  teacher     Teacher        @relation(fields: [teacherId], references: [id], onDelete: Cascade)
+  students    Student[]
+  sessions    ClassSession[]
+  
+  @@map("courses")
+}
+
+// Student model
+model Student {
+  id        String   @id @default(uuid())
+  name      String
+  email     String?
+  courseId  String
+  avatarType String  @default("default") // For simulation rendering
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  
+  course    Course          @relation(fields: [courseId], references: [id], onDelete: Cascade)
+  metrics   StudentMetric[]
+  
+  @@map("students")
+}
+
+// Class Session model
+model ClassSession {
+  id              String   @id @default(uuid())
+  courseId        String
+  date            DateTime @default(now())
+  duration        Int      // Duration in seconds (always 15 for simulation)
+  videoGenerated  Boolean  @default(true)
+  analyzed        Boolean  @default(false)
+  createdAt       DateTime @default(now())
+  
+  course          Course          @relation(fields: [courseId], references: [id], onDelete: Cascade)
+  metrics         SessionMetrics?
+  studentMetrics  StudentMetric[]
+  
+  @@map("class_sessions")
+}
+
+// Session-level metrics (aggregated)
+model SessionMetrics {
+  id                    String   @id @default(uuid())
+  sessionId             String   @unique
+  overallAttentionScore Float    // 0-100
+  participationRate     Float    // Percentage of students participating
+  distractionCount      Int
+  distractionTypes      String[] // Array of detected distraction types
+  geminiAnalysis        String?  @db.Text // Raw Gemini response
+  createdAt             DateTime @default(now())
+  
+  session               ClassSession @relation(fields: [sessionId], references: [id], onDelete: Cascade)
+  
+  @@map("session_metrics")
+}
+
+// Per-student metrics within a session
+model StudentMetric {
+  id               String   @id @default(uuid())
+  sessionId        String
+  studentId        String
+  attentionState   String   // "focused", "distracted", "tired", "using_phone", etc.
+  participationType String?  // "raising_hand", "taking_notes", "answering", null
+  confidenceScore  Float?   // AI confidence 0-1
+  timestamp        Int      // Timestamp within the 15s video
+  createdAt        DateTime @default(now())
+  
+  session          ClassSession @relation(fields: [sessionId], references: [id], onDelete: Cascade)
+  student          Student      @relation(fields: [studentId], references: [id], onDelete: Cascade)
+  
+  @@map("student_metrics")
+}

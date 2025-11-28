@@ -1,0 +1,8 @@
+{
+  "/api/analyze-frame/route": "app/api/analyze-frame/route.js",
+  "/api/analyze-video/route": "app/api/analyze-video/route.js",
+  "/api/courses/route": "app/api/courses/route.js",
+  "/api/sessions/route": "app/api/sessions/route.js",
+  "/api/simulation/analyze/route": "app/api/simulation/analyze/route.js",
+  "/page": "app/page.js"
+}
