@@ -3538,13 +3538,13 @@ function VideoUploadAnalyzer() {
     const [analysisResults, setAnalysisResults] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])([]);
     const [currentResult, setCurrentResult] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(null);
     const [error, setError] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(null);
-    const [apiKeyInput, setApiKeyInput] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(("TURBOPACK compile-time value", "AIzaSyCMWhjiWFdBZxEb-m_BBQ03xDJy_x-7ZJI") || "");
+    const [apiKeyInput, setApiKeyInput] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(("TURBOPACK compile-time value", "AIzaSyAkXiqllklykPrUbEnYgPgitZuBjZuMDo4") || "");
     const [showApiKeyInput, setShowApiKeyInput] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(false);
     const { isConnected, analyzeFrame, connect, disconnect } = (0, __TURBOPACK__imported__module__$5b$project$5d2f$hooks$2f$use$2d$gemini$2d$analysis$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useGeminiAnalysis"])();
     // Auto-connect if key is available
     (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useEffect"])({
         "VideoUploadAnalyzer.useEffect": ()=>{
-            const apiKey = ("TURBOPACK compile-time value", "AIzaSyCMWhjiWFdBZxEb-m_BBQ03xDJy_x-7ZJI");
+            const apiKey = ("TURBOPACK compile-time value", "AIzaSyAkXiqllklykPrUbEnYgPgitZuBjZuMDo4");
             console.log('[VideoAnalyzer] API Key available:', !!apiKey);
             console.log('[VideoAnalyzer] Currently connected:', isConnected);
             if (apiKey && !isConnected) {
@@ -3751,7 +3751,7 @@ function VideoUploadAnalyzer() {
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                         className: "lg:col-span-2 space-y-6",
                         children: [
-                            !isConnected && !("TURBOPACK compile-time value", "AIzaSyCMWhjiWFdBZxEb-m_BBQ03xDJy_x-7ZJI") && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$card$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Card"], {
+                            !isConnected && !("TURBOPACK compile-time value", "AIzaSyAkXiqllklykPrUbEnYgPgitZuBjZuMDo4") && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$card$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Card"], {
                                 className: "bg-card border-border p-6 rounded-lg",
                                 children: [
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h2", {
@@ -4978,7 +4978,7 @@ function LiveSession({ onNavigate }) {
             const initializeAPI = {
                 "LiveSession.useEffect.initializeAPI": async ()=>{
                     // First try environment variable
-                    const envApiKey = ("TURBOPACK compile-time value", "AIzaSyCMWhjiWFdBZxEb-m_BBQ03xDJy_x-7ZJI");
+                    const envApiKey = ("TURBOPACK compile-time value", "AIzaSyAkXiqllklykPrUbEnYgPgitZuBjZuMDo4");
                     console.log('[LiveSession] API Key from env available:', !!envApiKey);
                     console.log('[LiveSession] Currently connected:', isConnected);
                     if ("TURBOPACK compile-time truthy", 1) {
